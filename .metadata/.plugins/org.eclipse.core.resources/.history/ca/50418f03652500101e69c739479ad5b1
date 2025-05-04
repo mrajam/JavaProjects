@@ -1,0 +1,7 @@
+package com.java8Programs;
+
+public class OccuranceOfWordInString {
+	public static void main(String[] args) {
+		String str = "My name is maharaja is maharaja"
+	}
+}

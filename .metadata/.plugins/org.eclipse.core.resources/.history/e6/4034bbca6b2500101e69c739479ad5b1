@@ -1,0 +1,9 @@
+package com.java8Programs;
+
+public class FrequencyOfCharInString {
+
+	public static void main(String[] args) {
+		String str = "My name is maharaja";
+		String res = str.replace(" ", "");
+	}
+}

@@ -1,0 +1,17 @@
+package com.java8Programs;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SumOfEvenNumbers {
+
+	public static void main(String[] args) {
+
+		List<Integer> li = new ArrayList<>();
+		li.add(1);
+		li.add(2);
+		li.add(3);
+		li.add(6);
+		System.out.println(li.stream().filter(n -> n%2 ==0).mapToInt(Integer::intValue).sum());
+	}
+}

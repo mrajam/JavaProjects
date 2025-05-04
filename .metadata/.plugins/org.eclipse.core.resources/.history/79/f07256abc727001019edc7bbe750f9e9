@@ -1,0 +1,103 @@
+package com.practice;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+/**
+Get the list of all departments.
+
+Get the names of employees with salary > 50000.
+
+Group employees by department.
+
+Count employees in each department.
+
+Find the highest-paid employee in each department.
+
+Get the average salary of the organization.
+
+Partition employees by age > 30.
+
+Get the names of employees sorted by salary in descending order.
+
+Join all employee names with a comma.
+
+Convert the list into a map with employee ID as key and name as value.
+ */
+public class EmployeeOperations {
+	public static void main(String[] args) {
+		ArrayList<Employee> empList = new ArrayList<>(List.of(
+				new Employee(1, "Raja", "Development", 100000, 26),
+				new Employee(1, "Appu", "Devops", 110000, 26),
+				new Employee(1, "Abhithakujalambal", "Development", 150000, 27),
+				new Employee(1, "Mahi", "Testing", 120000, 28),
+				new Employee(1, "Maharaja", "BA", 180000, 29)
+				));
+		
+		getListOfDepartments(empList);
+		getEmployeeWithSalaryMorethan100000(empList);
+		groupEmployeesByDepartment(empList);
+		countEmployeesInEachDept(empList);
+		printHighesPaidEmployeeInEachDept(empList);
+		printAverageSalaryOfOrganization(empList);
+	}
+	/**
+	 * Get the list of all departments.
+	 */
+	public static void getListOfDepartments(ArrayList<Employee> empList) {
+		empList.stream().map(n -> n.getDepartment()).distinct().forEach(System.out::println);
+		System.out.println("--------------------");
+	}
+	/**
+	 * Get the names of employees with salary > 100000.
+	 */
+	private static void getEmployeeWithSalaryMorethan100000(ArrayList<Employee> empList) {
+		empList.stream().filter(n -> n.getSalary() > 100000).forEach(n -> System.out.println(n.getName()));
+		System.out.println("--------------------");
+	}
+	
+	/**
+	 * Group employees by department.
+	 */
+	private static void groupEmployeesByDepartment(ArrayList<Employee> empList) {
+		Map<String, List<Employee>> group = empList.stream().collect(Collectors.groupingBy(Employee::getDepartment));
+		group.entrySet().stream().forEach(n -> {
+			System.out.println(n.getKey() +": "+n.getValue().stream().map(m -> m.getName()).collect(Collectors.joining(",")));
+		});
+		System.out.println("--------------------");
+	}
+	
+	/**
+	 * Count employees in each department.
+	 */
+	private static void countEmployeesInEachDept(ArrayList<Employee> empList) {
+		empList.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()))
+		.entrySet().stream().forEach(n -> System.out.println(n.getKey() +": "+n.getValue()));
+		System.out.println("--------------------");
+	}
+	
+	/**
+	 * Find the highest-paid employee in each department
+	 */
+	private static void printHighesPaidEmployeeInEachDept(ArrayList<Employee> empList) {
+		Map<String, List<Employee>> grpMap = empList.stream().collect(Collectors.groupingBy(Employee::getDepartment));
+		grpMap.entrySet().forEach(n -> System.out.println(n.getKey()+": "+n.getValue().stream().max(Comparator.comparingDouble(Employee::getSalary)).get().getName()));
+		
+		System.out.println("--------------------");
+	}
+	
+	/**
+	 * Get the average salary of the organization.
+	 */
+	private static void printAverageSalaryOfOrganization(ArrayList<Employee> empList) {
+
+//		empList.stream().
+		
+		System.out.println("--------------------");
+	}
+	
+	
+}

@@ -1,0 +1,24 @@
+package com.java8Programs;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class OccuranceOfWordInString {
+	public static void main(String[] args) {
+		String str = "My name is maharaja is maharaja";
+		String[] strArr = str.split(" ");
+		Map<String, Long> mapData = Arrays.asList(strArr).stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		System.out.println(mapData.entrySet().toString());
+		occuranceOfNumberInList();
+	}
+	public static void occuranceOfNumberInList() {
+		List<Integer> list = List.of(1,2,3,4,5,3,4);
+		list.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().forEach(e -> {
+			System.out.print(e.getKey() +" : "+e.getValue());
+			System.out.println("//");
+		});
+	}
+}

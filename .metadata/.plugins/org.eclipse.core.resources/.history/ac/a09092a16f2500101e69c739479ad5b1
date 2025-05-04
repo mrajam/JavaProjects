@@ -1,0 +1,9 @@
+package com.java8Programs;
+
+public class NonRepeatedCharInString {
+	public static void main(String[] args) {
+		String str = "my name is maharaja";
+		Char[] res = str.replace(" ", "").toCharArray();
+		
+	}
+}	

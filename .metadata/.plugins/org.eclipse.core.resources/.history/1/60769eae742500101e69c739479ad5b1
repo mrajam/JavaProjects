@@ -1,0 +1,44 @@
+package com.java8Programs;
+
+public class Student {
+
+	private String name;
+	private int mark;
+	private int id;
+	
+	public Student(String name, int mark, int id) {
+		super();
+		this.name = name;
+		this.mark = mark;
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getMark() {
+		return mark;
+	}
+	public void setMark(int mark) {
+		this.mark = mark;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", mark=" + mark + ", id=" + id + "]";
+	}
+	
+}
+
+class StudentController{
+	public static void main(String[] args) {
+		
+	}
+}

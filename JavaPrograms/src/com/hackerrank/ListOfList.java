@@ -26,6 +26,7 @@ public class ListOfList {
                 System.out.println("ERROR!");
             }else if(resList.get(liNum-1).size() < indexNum){
                 System.out.println("ERROR!");
+                
             }else{
                 System.out.println(resList.get(liNum-1).get(indexNum-1));
             }
